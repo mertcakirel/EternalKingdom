@@ -1,0 +1,474 @@
+	
+/* Genel Ayarlar */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+background:#0a0a0a;
+color:#e0e0e0;
+overflow-x:hidden;
+}
+
+
+/* Hareketli Yıldız Arka Planı */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:url("assets/images/stars.png");
+opacity:.25;
+z-index:-1;
+animation:starsMove 40s linear infinite;
+}
+
+@keyframes starsMove{
+
+0%{
+background-position:0 0;
+}
+
+100%{
+background-position:1000px 1000px;
+}
+
+}
+
+
+/* Menü */
+
+.navbar{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:rgba(0,0,0,.9);
+z-index:9999;
+}
+
+
+.logo{
+	
+font-size:32px;
+font-weight:bold;
+color:#FFD700;
+}
+
+
+.navbar ul{
+display:flex;
+list-style:none;
+}
+
+
+.navbar ul li{
+
+margin-left:30px;
+position:relative;
+}
+
+
+.navbar ul li a{
+
+text-decoration:none;
+color:white;
+transition:.5s;
+}
+
+
+.navbar ul li a:hover{
+color:#FFD700;
+}
+
+
+/* Dropdown Menü */
+
+.dropdown-content{
+
+display:none;
+position:absolute;
+background:#1a1a1a;
+width:180px;
+padding:10px;
+border-radius:10px;
+}
+
+.dropdown:hover .dropdown-content{
+
+display:block;
+}
+
+.dropdown-content a{
+
+display:block;
+padding:10px;
+}
+
+
+/* Hero */
+
+.hero{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+}
+
+
+.smoke{
+
+font-size:90px;
+font-weight:bold;
+letter-spacing:10px;
+color:#c00000;
+text-shadow:
+0 0 5px #3d0000,
+0 0 15px #5a0000,
+0 0 30px #8b0000,
+0 0 60px #ff0000,
+0 0 100px #ff0000;
+animation:smoke 4s infinite;
+}
+
+@keyframes smoke{
+
+0%{
+opacity:1;
+filter:blur(0px);
+transform:translateY(0);
+}
+
+50%{
+opacity:.4;
+filter:blur(7px);
+transform:translateY(-20px);
+}
+
+100%{
+opacity:1;
+filter:blur(0px);
+transform:translateY(0);
+}
+
+}
+
+
+.hero p{
+
+font-size:25px;
+margin-top:20px;
+
+}
+
+
+/* Slider */
+
+.slider{
+
+display:flex;
+overflow:hidden;
+}
+
+.slide img{
+
+width:100%;
+height:100vh;
+object-fit:cover;
+}
+
+
+/* Parallax */
+
+.parallax{
+
+background:url("assets/images/hero.png");
+background-size:cover;
+background-attachment:fixed;
+padding:200px 100px;
+text-align:center;
+}
+
+.parallax h2{
+
+font-size:50px;
+color:#FFD700;
+margin-bottom:30px;
+}
+
+
+/* Karakter Kartları */
+
+.cards{
+padding:100px 50px;
+text-align:center;
+}
+
+.cards h2{
+font-size:50px;
+color:#FFD700;
+margin-bottom:50px;
+}
+
+.card-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+}
+
+.flip-card{
+width:250px;
+height:350px;
+perspective:1000px;
+}
+
+.flip-card-inner{
+position:relative;
+width:100%;
+height:100%;
+transition:1s;
+transform-style:preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner{
+transform:rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:20px;
+overflow:hidden;
+background:#1a1a1a;
+}
+
+.flip-card-front img{
+width:100%;
+height:80%;
+object-fit:contain;
+background:#111;
+}
+
+.flip-card-front h3{
+padding:15px;
+}
+
+.flip-card-back{
+transform:rotateY(180deg);
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+background:#222;
+}
+
+
+/* Galeri */
+
+.gallery{
+padding:100px 50px;
+text-align:center;
+}
+
+.gallery h2{
+font-size:50px;
+color:#FFD700;
+margin-bottom:50px;
+}
+
+.gallery-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+}
+
+.image-box{
+position:relative;
+overflow:hidden;
+border-radius:20px;
+}
+
+.image-box img{
+width:300px;
+height:200px;
+transition:.5s;
+}
+
+.image-box:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:25px;
+opacity:0;
+transition:.5s;
+}
+
+.image-box:hover .overlay{
+opacity:1;
+}
+
+
+/* Özellik Kartları */
+
+.features{
+padding:100px 50px;
+text-align:center;
+}
+
+.features h2{
+font-size:50px;
+color:#FFD700;
+margin-bottom:50px;
+}
+
+.feature-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+}
+
+.feature-card{
+
+background:#1a1a1a;
+padding:40px;
+width:220px;
+border-radius:20px;
+transition:.5s;
+}
+
+.feature-card:hover{
+
+transform:translateY(-15px);
+box-shadow:0 0 20px #FFD700;
+
+}
+
+/* Form */
+
+.contact{
+padding:100px 50px;
+text-align:center;
+}
+
+.contact h2{
+font-size:50px;
+color:#FFD700;
+margin-bottom:40px;
+}
+
+form{
+
+width:500px;
+margin:auto;
+padding:40px;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+border-radius:20px;
+}
+
+input,
+textarea{
+
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+outline:none;
+}
+
+button{
+
+margin-top:20px;
+padding:15px 40px;
+background:#FFD700;
+cursor:pointer;
+border:none;
+font-size:18px;
+}
+
+
+/* Footer */
+
+footer{
+
+background:black;
+padding:40px;
+text-align:center;
+}
+
+footer h3{
+
+color:#FFD700;
+margin-bottom:15px;
+}
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+}
+
+.navbar ul{
+flex-direction:column;
+margin-top:20px;
+}
+
+.card-container{
+flex-direction:column;
+align-items:center;
+}
+
+.gallery-container{
+flex-direction:column;
+align-items:center;
+}
+
+.feature-container{
+flex-direction:column;
+align-items:center;
+}
+
+form{
+width:90%;
+}
+
+.smoke{
+font-size:50px;
+}
+
+}
+
+
